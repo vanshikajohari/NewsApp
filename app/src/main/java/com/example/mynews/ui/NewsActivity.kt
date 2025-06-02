@@ -27,7 +27,7 @@ class NewsActivity : AppCompatActivity() {
 
         // Initialize Database & Repository
         val database = ArticleDatabase.getInstance(this)
-        val newsRepository = NewsRepository(database, RetrofitInstance.api)
+        val newsRepository = NewsRepository(database)
 
         // ViewModel
         val viewModelFactory = NewsViewModelProviderFactory(newsRepository)
