@@ -3,7 +3,7 @@ package com.example.mynews.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mynews.models.NewsResponse
+import com.example.mynews.ui.models.NewsResponse
 import com.example.mynews.repository.NewsRepository
 import com.example.mynews.ui.util.Resource
 import kotlinx.coroutines.launch

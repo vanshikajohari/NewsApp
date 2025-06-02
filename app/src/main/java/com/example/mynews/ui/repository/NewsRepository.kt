@@ -1,7 +1,7 @@
 package com.example.mynews.repository
 
 import com.example.mynews.ui.db.ArticleDatabase
-import com.example.mynews.models.Article
+import com.example.mynews.ui.models.Article
 import com.example.mynews.ui.api.NewsAPI
 
 class NewsRepository(
@@ -13,7 +13,7 @@ class NewsRepository(
         api.getBreakingNews(countryCode, pageNumber)
 
     // Room database operations
-    suspend fun upsert(article: Article) = db.getArticleDao().upsert(article)
+    suspend fun upsert(article: Article) = db.getArticleDao().upsertArticle(article)
 
     fun getSavedNews() = db.getArticleDao().getAllArticles()
 

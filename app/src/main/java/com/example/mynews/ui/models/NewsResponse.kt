@@ -1,6 +1,8 @@
 // File: com/example/mynews/models/NewsResponse.kt
 
-package com.example.mynews.models
+package com.example.mynews.ui.models
+
+import com.example.mynews.ui.models.Article
 
 data class NewsResponse(
     val status: String,

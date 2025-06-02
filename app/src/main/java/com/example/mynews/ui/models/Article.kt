@@ -1,12 +1,10 @@
-package com.example.mynews.models
+package com.example.mynews.ui.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "articles")
 data class Article(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
     val source: Source,
     val author: String?,
     val title: String,
@@ -14,5 +12,7 @@ data class Article(
     val url: String,
     val urlToImage: String?,
     val publishedAt: String,
-    val content: String?
+    val content: String?,
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
 )

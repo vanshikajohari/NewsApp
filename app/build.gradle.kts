@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.kapt) apply true
     alias(libs.plugins.navigation.safeargs)
 }
 
@@ -44,6 +44,12 @@ plugins {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
 }
 
 dependencies {
@@ -64,6 +70,8 @@ dependencies {
     implementation("androidx.room:room-runtime:2.5.1")
     kapt("androidx.room:room-compiler:2.5.1")
     implementation("androidx.room:room-ktx:2.5.1")
+
+
 
 
 // Coroutines - Latest stable versions
