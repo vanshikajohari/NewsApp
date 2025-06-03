@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mynews.R
 import com.example.mynews.databinding.FragmentBreakingNewsBinding
@@ -52,6 +53,24 @@ class SearchNewsFragment :Fragment(R.layout.fragment_search_news){
                 }
             }
         }
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable(
+                    "article",
+                    it
+                )
+                putString(
+                    "prev",
+                    "search"
+                )
+            }
+            findNavController().navigate(
+                R.id.action_searchNewsFragment_to_articleFragment,
+                bundle
+            )
+        }
+
         viewModel.searchNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
